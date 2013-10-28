@@ -13,7 +13,7 @@ if (have_posts()) {
 			
 			<?php the_content(); ?>
 			
-			<h5>
+			<h6 class="meta">
 				<?php
 				echo (!is_single()) ? ('<a href="' . get_permalink( get_the_ID() ) . '" rel="bookmark">') : '';
 				echo '<span itemprop="datePublished">' . get_the_time( stream_datetime_format() ) . '</span>';
@@ -21,7 +21,7 @@ if (have_posts()) {
 				echo '<span itemprop="name">' . get_the_title() . '</span>';
 				echo (!is_single()) ? '</a>' : '';
 				?>
-			</h5>
+			</h6>
 		</div>
 		<?php
 	}

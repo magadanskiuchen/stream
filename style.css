@@ -8,8 +8,56 @@ Author URI: http://magadanski.com/
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Description: A theme intended for easy and fast publishing when blogging on a live event.
-Tags: live event, fast, easy, publish, stream, simplistic, light, responsive
+Tags: live event, fast, easy, publish, stream, simplistic, light, html5, responsive
 */
 
-* { margin: 0; padding: 0; }
+* { margin: 0; padding: 0; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 html, body { width: 100%; height: 100%; }
+
+body { background: #FFF; color: #000; font: normal 14px/1.2 Verdana, Geneva, sans-serif; }
+
+h1, h2, h3, h4, h5, h6 { font-family: Arial, Helvetica, sans-serif; line-height: 1.5; }
+h1 { font-size: 54px; }
+h2 { font-size: 46px; }
+h3 { font-size: 38px; }
+h4 { font-size: 30px; }
+h5 { font-size: 22px; }
+h6 { font-size: 14px; }
+
+a, a:link, a:active { color: #00E; text-decoration: none; border-bottom: 2px solid #00E; }
+a:hover, a:focus { border-bottom: none; outline: none; }
+
+header { margin: 0 0 20px; padding: 10px; background: #E0E0E0; }
+header h1 { text-align: center; }
+header h1 a, header h1 a:link { color: #000; border: none; }
+
+#content { width: auto; max-width: 960px; margin: 0 auto; padding: 0 10px; }
+
+.posting { overflow: hidden; }
+.posting .field { padding-bottom: 10px; }
+.posting .field.input-container { float: left; width: 75%; }
+.posting .field.submit-container { float: right; width: 25%; text-align: right; }
+
+.posting textarea,
+.posting input { font: normal 14px/1.2 Verdana, Geneva, sans-serif; }
+
+.posting textarea,
+.posting input[type="text"] { border: 1px solid #B0B0B0; background: #FFF; box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.2); }
+
+.posting textarea { display: block; width: 100%; max-width: 100%; min-height: 150px; padding: 8px; }
+.posting input[type="text"] { width: 100%; padding: 2px 4px; }
+
+.posting textarea:focus,
+.posting input[type="text"]:focus { border-color: #000; outline: none; }
+
+.posting input[type="submit"] { padding: 3px 9px; border: none; background: #0055FF; color: #FFF; font-weight: bold;
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzRjODhmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDNiYjMiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  #4c88ff 0%, #003bb3 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#4c88ff), color-stop(100%,#003bb3)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #4c88ff 0%,#003bb3 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #4c88ff 0%,#003bb3 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #4c88ff 0%,#003bb3 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #4c88ff 0%,#003bb3 100%); /* W3C */
+ }
+
+h6.meta { font-weight: normal; }
