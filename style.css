@@ -60,4 +60,9 @@ header h1 a, header h1 a:link { color: #000; border: none; }
 	background: linear-gradient(to bottom,  #4c88ff 0%,#003bb3 100%); /* W3C */
  }
 
-h6.meta { font-weight: normal; }
+.meta { margin-top: 12px; }
+.meta h6 { font-weight: normal; }
+
+.hentry { overflow: auto; }
+.hentry .vcard { float: left; width: 64px; margin: 0 10px 10px 0; word-wrap: break-word; text-align: center; }
+.hentry .post-content { overflow: auto; }
