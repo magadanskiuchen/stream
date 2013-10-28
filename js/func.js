@@ -31,19 +31,26 @@ jQuery(function ($) {
 	listing.find('div.hentry').addClass('visible');
 	
 	posting.submit(function (e) {
-		e.preventDefault();
-		$this = $(this);
-		
-		$.ajax({
-			cache: false,
-			url: window.location.href,
-			type: $this.attr('method'),
-			data: $this.serialize(),
-			success: function (data, status, XHR) {
-				// setLoadInterval();
-				$this.find('textarea, input[type="text"]').val('').first().focus();
-			}
-		});
+		if (posting.data('disabled') !== true) {
+			e.preventDefault();
+			$this = $(this);
+			
+			$.ajax({
+				cache: false,
+				url: window.location.href,
+				type: $this.attr('method'),
+				data: $this.serialize(),
+				success: function (data, status, XHR) {
+					posting.data('disabled', false);
+					posting.find('[disabled]').removeAttr('disabled');
+					
+					$this.find('textarea, input[type="text"]').val('').first().focus();
+				}
+			});
+			
+			posting.data('disabled', true);
+			posting.find('textarea, input').attr('disabled', 'disabled');
+		}
 	}).keydown(function (e) {
 		if (e.keyCode == 13 && e.ctrlKey) {
 			$(this).submit();

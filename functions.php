@@ -66,14 +66,16 @@ function stream_retina_avatar($avatar, $id_or_email, $size, $default, $alt) {
 
 function stream_submit_post() {
 	if ($_SERVER['REQUEST_METHOD'] == 'POST' && !is_admin() && isset($_POST['stream_content'])) {
-		$p = array();
-		$p['post_type'] = 'post';
-		$p['post_status'] = 'publish';
-		$p['post_title'] = isset($_POST['stream_title']) ? $_POST['stream_title'] : '';
-		$p['post_content'] = isset($_POST['stream_content']) ? $_POST['stream_content'] : '';
-		$p['post_author'] = get_current_user_id();
-		
-		wp_insert_post($p, $wp_error);
+		if (current_user_can('publish_posts')) {
+			$p = array();
+			$p['post_type'] = 'post';
+			$p['post_status'] = 'publish';
+			$p['post_title'] = isset($_POST['stream_title']) ? $_POST['stream_title'] : '';
+			$p['post_content'] = isset($_POST['stream_content']) ? $_POST['stream_content'] : '';
+			$p['post_author'] = get_current_user_id();
+			
+			wp_insert_post($p, $wp_error);
+		}
 		
 		wp_redirect($_SERVER['REQUEST_URI']);
 		exit;
