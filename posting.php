@@ -4,7 +4,7 @@
 	</div>
 	
 	<div class="field input-container">
-		<input type="text" name="stream_title" placeholder="<?php echo esc_attr( date( stream_datetime_format() ) ); ?>" />
+		<input type="text" name="stream_title" placeholder="<?php echo esc_attr( date( stream_datetime_format(), current_time('timestamp') ) ); ?>" />
 	</div>
 	
 	<div class="field submit-container">

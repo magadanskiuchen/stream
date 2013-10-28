@@ -1,5 +1,7 @@
 <?php
 if (have_posts()) {
+	echo '<div class="listing" data-time="' . current_time('mysql') . '">';
+	
 	while (have_posts()) {
 		the_post();
 		?>
@@ -12,23 +14,28 @@ if (have_posts()) {
 			
 			<div class="post-content">
 				<?php the_content(); ?>
-			</div>
-			
-			<div class="meta">
-				<p><strong itemprop="author"><?php the_author(); ?></strong></p>
 				
-				<h6>
-					<?php
-					echo (!is_single()) ? ('<a href="' . get_permalink( get_the_ID() ) . '" rel="bookmark">') : '';
-					echo '<span itemprop="datePublished">' . get_the_time( stream_datetime_format() ) . '</span>';
-					echo ' ';
-					echo '<span itemprop="name">' . get_the_title() . '</span>';
-					echo (!is_single()) ? '</a>' : '';
-					?>
-				</h6>
+				<div class="meta">
+					<p><strong itemprop="author"><?php the_author(); ?></strong></p>
+					
+					<h6>
+						<?php
+						echo (!is_single()) ? ('<a href="' . get_permalink( get_the_ID() ) . '" rel="bookmark">') : '';
+						echo '<span itemprop="datePublished">' . get_the_time( stream_datetime_format() ) . '</span>';
+						
+						$title = get_the_title();
+						if ($title) {
+							echo ' <span itemprop="name">' . get_the_title() . '</span>';
+						}
+						echo (!is_single()) ? '</a>' : '';
+						?>
+					</h6>
+				</div>
 			</div>
 		</div>
 		<?php
 	}
+	
+	echo '</div>';
 }
 ?>
